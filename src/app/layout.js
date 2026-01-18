@@ -6,15 +6,17 @@ import "./globals.css";
 const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Arolax - Creative Agency",
-  description: "Premium Digital Creative Agency",
+  title: "Varaxia - Advanced Technology Lab ",
+  description: "Advanced Technology Lab",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${outfit.className} antialiased text-white bg-[#0e0e0e]`}>
-        <CustomCursor />
+        <div className="hidden md:block">
+          <CustomCursor />
+        </div>
         <SmoothScroll>
           {children}
         </SmoothScroll>

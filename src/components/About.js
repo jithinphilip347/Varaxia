@@ -72,7 +72,7 @@ export default function About() {
     <section ref={container} className="py-20 px-6 md:px-10 bg-[#0e0e0e] text-white overflow-hidden">
       {/* 1. Main Heading - Increased Size & Visibility */}
       <div className="mb-8"> 
-        <h2 className="text-[40px] md:text-[63px] font-black uppercase tracking-tighter leading-[0.9] w-full">
+        <h2 className="text-[15px] md:text-[63px] font-black uppercase tracking-tighter leading-[1.1] md:leading-[0.9] w-full">
            <span className="about-title-line block flex items-end gap-3 md:gap-5">
               <span className="w-12 md:w-20 h-[2px] bg-neutral-600 mb-3 md:mb-5"></span>
               We're Friendly And <span className="text-neutral-600">Experienced</span>

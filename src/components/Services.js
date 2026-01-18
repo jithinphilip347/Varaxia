@@ -38,76 +38,90 @@ export default function Services() {
   const cardsRef = useRef([]);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    let mm = gsap.matchMedia();
+
+    mm.add({
+        // DESKTOP: Horizontal Deck Scroll
+        desktop: "(min-width: 768px)",
+        // MOBILE: Vertical Stack Scroll
+        mobile: "(max-width: 767px)"
+    }, (context) => {
+        let { desktop, mobile } = context.conditions;
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=300%", 
+                end: desktop ? "+=300%" : "+=500%", // Longer scroll for mobile vertical stack
                 pin: true,
                 scrub: 1,
             }
         });
 
         cardsRef.current.forEach((card, i) => {
-            // Card 01: Static (Scrolls naturally with the section)
-            // Cards 02+: Fly in from Bottom-Right and stack
-            
-            if (i === 0) return; 
+            if (i === 0) return; // First card is anchor
 
-            tl.fromTo(card, 
-                { 
-                    x: "100vw", 
-                    y: "100vh", 
-                }, 
-                { 
-                    x: `${i * 12}vw`, // 12vw, 24vw, 36vw... (Horizontal Stack)
-                    y: 0,
-                    ease: "none", 
-                    duration: 1
-                }
-            );
+            if (desktop) {
+                // Desktop: Horizontal Deck (Right -> Left)
+                tl.fromTo(card, 
+                    { x: "100vw", y: "100vh" }, 
+                    { 
+                        x: `${i * 12}vw`, 
+                        y: 0,
+                        ease: "none", 
+                        duration: 1
+                    }
+                );
+            } else {
+                // Mobile: Vertical Stepped Stack (Bottom -> Top)
+                // Cards slide UP and stop at specific offsets to reveal numbers of previous cards
+                // e.g. Card 01 at 0px, Card 02 at 60px...
+                tl.fromTo(card,
+                    { y: "100vh" }, 
+                    {
+                        y: `${i * 55}px`, // 55px Vertical Gap to Show Number of card behind
+                        ease: "none",
+                        duration: 1
+                    }
+                );
+            }
         });
-    }, containerRef);
+    }); 
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   return (
     <section ref={containerRef} className="h-screen bg-[#0e0e0e] text-white overflow-hidden relative flex items-center">
       
       {/* Background Title */}
-      <div className="absolute top-8 left-10 z-0">
+      <div className="absolute top-8 left-6 md:left-10 z-0">
           <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
              Our Services
           </h2>
       </div>
 
-      {/* Cards Container - Aligned with Title using margin-left */}
-      <div className="relative w-full h-[70vh] flex items-center ml-10 mt-20">
+      {/* Cards Container */}
+      <div className="relative w-full h-[90vh] md:h-[70vh] flex items-center justify-center md:justify-start ml-0 md:ml-10 mt-32 md:mt-20">
         {services.map((service, i) => (
           <div 
             key={i} 
             ref={el => cardsRef.current[i] = el}
-            className="absolute top-0 h-full w-[85vw] md:w-[45vw] bg-black border-l border-white/20 p-8 flex flex-col justify-between"
-            // Initial position for static first card is correct (left: 0)
-            // Others will be animated, but we set initial css for the first one primarily
-            style={{ 
-                zIndex: i + 1,
-                left: 0 // All visually start at 0, animation moves them or they start offscreen via GSAP
-            }} 
+            // Mobile: h-[50vh] (Reduced height to fit stack), Desktop: h-full (Full height)
+            className="absolute top-0 h-[50vh] md:h-full w-[85vw] md:w-[45vw] bg-black border-l border-white/20 p-6 md:p-8 flex flex-col justify-between left-0 right-0 mx-auto md:mx-0 md:left-0"
+            style={{ zIndex: i + 1 }} 
           >
                {/* Number - Top Left (Visible Area) */}
-               <div className="text-6xl md:text-8xl font-black text-[#ff8ba7] tracking-tighter leading-none opacity-100 mb-10">
+               <div className="text-5xl md:text-8xl font-black text-[#ff8ba7] tracking-tighter leading-none opacity-100 mb-6 md:mb-10">
                   {service.id}
                </div>
 
                {/* Content - Bottom */}
-               <div className="flex flex-col gap-4 items-start pl-2">
-                  <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none max-w-lg">
+               <div className="flex flex-col gap-2 md:gap-4 items-start pl-2">
+                  <h3 className="text-3xl md:text-6xl font-black uppercase tracking-tighter leading-none max-w-lg">
                      {service.title}
                   </h3>
-                  <p className="text-sm md:text-lg font-medium text-neutral-400 max-w-xs uppercase tracking-wide leading-relaxed text-left">
+                  <p className="text-xs md:text-lg font-medium text-neutral-400 max-w-xs uppercase tracking-wide leading-relaxed text-left">
                      {service.desc}
                   </p>
                </div>

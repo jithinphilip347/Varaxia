@@ -60,7 +60,7 @@ export default function Team() {
       
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-end mb-24 max-w-7xl mx-auto">
-         <h2 className="text-5xl md:text-[5.5vw] font-black uppercase tracking-tighter leading-[0.9] max-w-4xl">
+         <h2 className="text-3xl md:text-[5.5vw] font-black uppercase tracking-tighter leading-[0.9] max-w-4xl">
             TEAM, <span className="text-neutral-800">BEHIND</span> THE CREATIVITY
          </h2>
          <p className="text-sm md:text-base text-neutral-400 max-w-xs text-right mt-8 md:mt-0 font-medium">
