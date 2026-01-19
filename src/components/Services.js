@@ -1,7 +1,8 @@
 'use client';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,7 +38,7 @@ export default function Services() {
   const containerRef = useRef(null);
   const cardsRef = useRef([]);
 
-  useEffect(() => {
+  useGSAP(() => {
     let mm = gsap.matchMedia();
 
     mm.add({
@@ -46,7 +47,7 @@ export default function Services() {
         // MOBILE: Vertical Stack Scroll
         mobile: "(max-width: 767px)"
     }, (context) => {
-        let { desktop, mobile } = context.conditions;
+        let { desktop } = context.conditions;
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -74,12 +75,10 @@ export default function Services() {
                 );
             } else {
                 // Mobile: Vertical Stepped Stack (Bottom -> Top)
-                // Cards slide UP and stop at specific offsets to reveal numbers of previous cards
-                // e.g. Card 01 at 0px, Card 02 at 60px...
                 tl.fromTo(card,
                     { y: "100vh" }, 
                     {
-                        y: `${i * 55}px`, // 55px Vertical Gap to Show Number of card behind
+                        y: `${i * 55}px`, // 55px Vertical Gap
                         ease: "none",
                         duration: 1
                     }
@@ -87,12 +86,11 @@ export default function Services() {
             }
         });
     }); 
-
-    return () => mm.revert();
-  }, []);
+    
+  }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="h-screen bg-[#0e0e0e] text-white overflow-hidden relative flex items-center">
+    <section id="services" ref={containerRef} className="h-screen bg-[#0e0e0e] text-white overflow-hidden relative flex items-center">
       
       {/* Background Title */}
       <div className="absolute top-8 left-6 md:left-10 z-0">

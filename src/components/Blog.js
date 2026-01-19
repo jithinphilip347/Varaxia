@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
+import Link from 'next/link';
+
 export default function Blog() {
   const blogs = [
      { 
@@ -18,7 +20,7 @@ export default function Blog() {
   ];
 
   return (
-    <section className="py-24 px-6 md:px-10 bg-[#0e0e0e] text-white">
+    <section id="blog" className="py-24 px-6 md:px-10 bg-[#0e0e0e] text-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8 items-start">
          
          {/* Column 1: Title & Info */}
@@ -26,16 +28,16 @@ export default function Blog() {
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.9] mb-8">
               BLOG <br/>
               INSIGHT THE <br/>
-              AROLAX
+              VARAXIA
             </h2>
             <p className="text-neutral-500 text-sm md:text-base leading-relaxed max-w-xs mb-10">
                We lead by the design philosophy that every deal only visually
             </p>
             
             <div>
-              <a href="#" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest border-b border-white pb-1 hover:opacity-70 transition-opacity">
+              <Link href="/blog" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest border-b border-white pb-1 hover:opacity-70 transition-opacity">
                  READ ALL POST <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </div>
          </div>
 

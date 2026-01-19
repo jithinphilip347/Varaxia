@@ -99,7 +99,7 @@ const WorkCard = ({ project, className }) => {
 
 export default function Portfolio() {
   return (
-     <section className="py-24 px-6 md:px-16 bg-[#0e0e0e] text-white overflow-hidden">
+     <section id="portfolio" className="py-24 px-6 md:px-16 bg-[#0e0e0e] text-white overflow-hidden">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row items-center md:items-center justify-between mb-24 gap-6 md:gap-14">

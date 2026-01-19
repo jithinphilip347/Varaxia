@@ -69,7 +69,7 @@ export default function About() {
   }, { scope: container });
 
   return (
-    <section ref={container} className="py-20 px-6 md:px-10 bg-[#0e0e0e] text-white overflow-hidden">
+    <section id="about" ref={container} className="py-20 px-6 md:px-10 bg-[#0e0e0e] text-white overflow-hidden">
       {/* 1. Main Heading - Increased Size & Visibility */}
       <div className="mb-8"> 
         <h2 className="text-[15px] md:text-[63px] font-black uppercase tracking-tighter leading-[1.1] md:leading-[0.9] w-full">

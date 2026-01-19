@@ -2,6 +2,10 @@
 import { useState } from 'react';
 import MagneticButton from "@/components/MagneticButton";
 import { ArrowRight, Menu, X } from "lucide-react";
+import Link from 'next/link';
+import localFont from 'next/font/local';
+
+const logoFont = localFont({ src: '../assets/fonts/logo-font.otf' });
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,17 +16,22 @@ export default function Header() {
       
           {/* 1. Left: Logo */}
           <div className="flex-1">
-            <div className="text-2xl md:text-3xl font-black uppercase tracking-tighter cursor-pointer relative z-50">
+            <Link 
+              href="/" 
+              className={`text-2xl md:text-3xl font-black uppercase tracking-widest cursor-pointer relative z-50 ${logoFont.className} text-white`}
+            >
                Varaxia
-            </div>
+            </Link>
           </div>
 
           {/* 2. Center: Desktop Navigation Links (Hidden < 1280px, visible on large desktops) */}
           <nav className="hidden xl:flex flex-1 justify-center">
             <ul className="flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
-              {["Home", "Services", "Portfolio", "Blog", "Contact"].map((item) => (
+               {["Home", "About", "Services", "Portfolio", "Blog"].map((item) => (
                  <li key={item} className="cursor-pointer hover:text-neutral-400 transition-colors relative group">
-                    {item}
+                    <Link href={item === "Home" ? "/" : item === "Blog" ? "/blog" : `/#${item.toLowerCase()}`}>
+                       {item}
+                    </Link>
                     <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
                  </li>
               ))}
@@ -35,10 +44,12 @@ export default function Header() {
               {/* Let's Talk Button (Always Visible or Hidden on Mobile if crowded? Keeping visible) */}
               <div className="hidden md:block">
                   <MagneticButton>
-                     <button className="bg-white text-black px-6 py-3 rounded-full flex items-center gap-3 font-bold text-xs uppercase tracking-widest hover:bg-neutral-200 transition-colors">
-                        <ArrowRight className="w-4 h-4" />
-                        Let's Talk
-                     </button>
+                     <Link href="/contact">
+                        <button className="bg-white text-black px-6 py-3 rounded-full flex items-center gap-3 font-bold text-xs uppercase tracking-widest hover:bg-neutral-200 transition-colors">
+                            <ArrowRight className="w-4 h-4" />
+                            Let's Talk
+                        </button>
+                     </Link>
                   </MagneticButton>
               </div>
 
@@ -66,24 +77,26 @@ export default function Header() {
 
             {/* Menu Links */}
             <ul className="flex flex-col gap-6 text-center">
-                {["Home", "Services", "Portfolio", "Blog", "Contact"].map((item) => (
+                {["Home", "About", "Services", "Portfolio", "Blog"].map((item) => (
                     <li key={item} className="overflow-hidden">
-                         <a 
-                            href="#" 
+                         <Link 
+                            href={item === "Home" ? "/" : item === "Blog" ? "/blog" : `/#${item.toLowerCase()}`}
                             onClick={() => setIsMenuOpen(false)}
                             className="block text-5xl md:text-7xl font-black uppercase tracking-tighter hover:text-[#d0fd3e] transition-colors"
                          >
                             {item}
-                         </a>
+                         </Link>
                     </li>
                 ))}
             </ul>
 
             {/* Mobile Let's Talk (If hidden in header) */}
             <div className="mt-12 md:hidden">
-                 <button className="bg-[#d0fd3e] text-black px-8 py-4 rounded-full flex items-center gap-3 font-bold uppercase tracking-widest">
-                    Let's Talk
-                 </button>
+                 <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                    <button className="bg-[#d0fd3e] text-black px-8 py-4 rounded-full flex items-center gap-3 font-bold uppercase tracking-widest">
+                        Let's Talk
+                    </button>
+                 </Link>
             </div>
         </div>
     </>
