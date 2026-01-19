@@ -13,32 +13,32 @@ gsap.registerPlugin(ScrollTrigger);
 const initialBlogs = [
   {
     img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop",
-    date: "JUNE 12, 2024",
+    date: "JAN 12, 2026",
     title: "BUSINESS GROWTH STRATEGIES",
   },
   {
     img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
-    date: "JUNE 12, 2024",
+    date: "DEC 15, 2025",
     title: "ENTREPRENEURIAL JOURNEYS",
   },
   {
     img: "https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=800&auto=format&fit=crop",
-    date: "MAY 28, 2024",
+    date: "NOV 28, 2025",
     title: "DIGITAL INNOVATION TRENDS",
   },
   {
     img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
-    date: "MAY 15, 2024",
+    date: "NOV 15, 2025",
     title: "THE FUTURE OF AI DESIGN",
   },
   {
     img: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop",
-    date: "APRIL 10, 2024",
-    title: "MINIMALISM IN 2024",
+    date: "OCT 10, 2025",
+    title: "MINIMALISM IN 2025",
   },
   {
     img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop",
-    date: "MARCH 22, 2024",
+    date: "SEP 22, 2025",
     title: "AGENCY CULTURAL SHIFTS",
   },
 ];
@@ -46,17 +46,17 @@ const initialBlogs = [
 const moreBlogs = [
   {
     img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
-    date: "FEB 18, 2024",
+    date: "AUG 18, 2025",
     title: "CREATIVE LEADERSHIP",
   },
   {
     img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
-    date: "JAN 30, 2024",
+    date: "JULY 30, 2025",
     title: "REMOTE WORK DYNAMICS",
   },
   {
     img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop",
-    date: "JAN 12, 2024",
+    date: "JULY 12, 2025",
     title: "SUSTAINABLE TECH",
   },
 ];

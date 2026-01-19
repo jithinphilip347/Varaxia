@@ -22,7 +22,7 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-widest opacity-40 border-t border-white/10 pt-10">
-        <span>© 2024 Varixia Agency</span>
+        <span>© 2026 Varixia Advanced Techno Lab</span>
         <div className="flex gap-8 mt-5 md:mt-0">
           <span className="cursor-pointer hover:text-white transition-colors">
             Instagram

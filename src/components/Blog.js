@@ -9,12 +9,12 @@ export default function Blog() {
   const blogs = [
     {
       img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop", // Abstract cells
-      date: "JUNE 12, 2024",
+      date: "JAN 12, 2026",
       title: "BUSINESS GROWTH STRATEGIES",
     },
     {
       img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop", // Woman w/ glasses
-      date: "JUNE 12, 2024",
+      date: "DEC 15, 2025",
       title: "ENTREPRENEURIAL JOURNEYS",
     },
   ];
@@ -58,11 +58,9 @@ export default function Blog() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-            </div>
-
-            {/* Date */}
-            <div className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider mb-3">
-              {blog.date}
+              <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1 text-[10px] font-bold uppercase tracking-widest border border-white/10">
+                {blog.date}
+              </div>
             </div>
 
             {/* Title */}

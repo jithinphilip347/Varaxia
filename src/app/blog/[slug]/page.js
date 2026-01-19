@@ -22,7 +22,7 @@ const blogPost = {
   title: "BUSINESS GROWTH STRATEGIES",
   category: "Business, Improvements",
   author: "Admin",
-  date: "JUNE 12, 2024",
+  date: "JAN 12, 2026",
   content: [
     "However, putting up a personal portfolio is no easy feat. In search of inspiration, you can find yourself scrolling through hundreds of personal portfolios and still not know where to start.",
     "Responsive and interactive design with muted colors so as not to distract. Good use of whitespace and neat typography. The case studies layout is distinctively clear and has a valid value.",
@@ -52,17 +52,17 @@ const blogPost = {
 const relatedBlogs = [
   {
     img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
-    date: "JUNE 12, 2024",
+    date: "DEC 15, 2025",
     title: "ENTREPRENEURIAL JOURNEYS",
   },
   {
     img: "https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=800&auto=format&fit=crop",
-    date: "MAY 28, 2024",
+    date: "NOV 28, 2025",
     title: "DIGITAL INNOVATION TRENDS",
   },
   {
     img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
-    date: "MAY 15, 2024",
+    date: "NOV 15, 2025",
     title: "THE FUTURE OF AI DESIGN",
   },
 ];
