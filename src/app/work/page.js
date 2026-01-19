@@ -61,21 +61,21 @@ const moreWorks = [
     category: "Photography",
     year: "2024",
     image:
-      "https://images.unsplash.com/photo-1486718448742-163732cd1544?q=80&w=2000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=2000&auto=format&fit=crop",
   },
   {
     title: "Fashion Editorial",
     category: "Photography",
     year: "2024",
     image:
-      "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2000&auto=format&fit=crop",
   },
   {
     title: "Tech Dashboard",
     category: "UI Design",
     year: "2025",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop",
   },
 ];
 
