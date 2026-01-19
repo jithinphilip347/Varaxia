@@ -6,7 +6,7 @@ import "./globals.css";
 const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Varaxia - Advanced Technology Lab ",
+  title: "Varixia - Advanced Technology Lab ",
   description: "Advanced Technology Lab",
 };
 

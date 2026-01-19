@@ -27,7 +27,7 @@ export default function Blog() {
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.9] mb-8">
             BLOG <br />
             INSIGHT THE <br />
-            VARAXIA
+            VARIXIA
           </h2>
           <p className="text-neutral-500 text-sm md:text-base leading-relaxed max-w-xs mb-10">
             We lead by the design philosophy that every deal only visually

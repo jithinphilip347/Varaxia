@@ -89,8 +89,8 @@ export default function Contact() {
               </h3>
             </div>
             <p className="text-neutral-400 pl-[3.5rem] md:pl-[4.5rem] text-sm md:text-base break-all group-hover:text-white transition-colors">
-              hello@varaxia.com <br />
-              support@varaxia.com
+              hello@varixia.com <br />
+              support@varixia.com
             </p>
           </div>
 

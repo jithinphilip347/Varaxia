@@ -123,7 +123,7 @@ export default function BlogList() {
             <span className="blog-hero-text block text-neutral-600">
               INSIGHT THE
             </span>
-            <span className="blog-hero-text block">VARAXIA</span>
+            <span className="blog-hero-text block">VARIXIA</span>
           </h1>
           <p className="blog-hero-text text-sm md:text-lg text-neutral-400 leading-relaxed max-w-xl">
             We lead by the design philosophy that every deal only visually

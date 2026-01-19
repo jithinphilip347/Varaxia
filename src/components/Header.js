@@ -19,7 +19,7 @@ export default function Header() {
             href="/"
             className={`text-2xl md:text-3xl font-black uppercase tracking-widest cursor-pointer relative z-50 ${logoFont.className} text-white`}
           >
-            Varaxia
+            Varixia
           </Link>
         </div>
 
