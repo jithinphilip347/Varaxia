@@ -1,7 +1,10 @@
 "use client";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import localFont from "next/font/local";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const logoFont = localFont({ src: "../assets/fonts/logo-font.otf" });
 
@@ -59,6 +62,10 @@ export default function Preloader() {
           y: 0,
           duration: 1.5,
           ease: "power3.out",
+          onComplete: () => {
+            ScrollTrigger.refresh();
+          },
+          clearProps: "all",
         },
         "<",
       );
