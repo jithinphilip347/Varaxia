@@ -4,6 +4,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,7 +76,10 @@ const WorkCard = ({ project, className }) => {
   }, []);
 
   return (
-    <div className={`group flex flex-col gap-6 ${className}`}>
+    <div
+      className={`group flex flex-col gap-6 ${className}`}
+      data-cursor-text="View More"
+    >
       {/* Image Container */}
       <div
         ref={containerRef}
@@ -165,10 +169,12 @@ export default function Portfolio() {
 
       {/* View All Button */}
       <div className="flex justify-center">
-        <button className="group flex items-center gap-3 bg-white text-black px-8 py-4 !rounded-none font-bold uppercase tracking-wider hover:bg-neutral-200 transition-colors shadow-none">
-          View All Work
-          <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-        </button>
+        <Link href="/work">
+          <button className="group flex items-center gap-3 bg-white text-black px-8 py-4 !rounded-none font-bold uppercase tracking-wider hover:bg-neutral-200 transition-colors shadow-none">
+            View All Work
+            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </button>
+        </Link>
       </div>
     </section>
   );
