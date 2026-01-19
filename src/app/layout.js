@@ -13,13 +13,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${outfit.className} antialiased text-white bg-[#0e0e0e]`}>
+      <body
+        className={`${outfit.className} antialiased text-white bg-[#0e0e0e]`}
+      >
         <div className="hidden md:block">
           <CustomCursor />
         </div>
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
