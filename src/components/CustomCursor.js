@@ -46,11 +46,11 @@ export default function CustomCursor() {
       const target = e.target.closest("[data-cursor-text]");
       if (target) {
         const text = target.getAttribute("data-cursor-text");
-        cursorText.current.innerText = text;
+        cursorText.current.innerText = text.replace(" ", "\n");
         gsap.to(follower.current, {
           scale: 3,
           backgroundColor: "#ffffff",
-          mixBlendMode: "difference",
+          mixBlendMode: "normal",
         });
         gsap.to(cursor.current, { opacity: 0 }); // Hide small dot
         gsap.to(cursorText.current, { opacity: 1, color: "black" });
@@ -87,7 +87,7 @@ export default function CustomCursor() {
       >
         <div
           ref={cursorText}
-          className="text-[4px] font-bold text-center uppercase leading-none opacity-0 whitespace-nowrap"
+          className="text-[4px] font-bold text-center uppercase leading-tight opacity-0 whitespace-pre-line"
         ></div>
       </div>
     </>
