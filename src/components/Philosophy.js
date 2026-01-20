@@ -23,7 +23,7 @@ const steps = [
     description:
       "Constantly adopting cutting edge technology for your enterprise to harness its endless possibilities and leave a global imprint.",
     image:
-      "https://images.unsplash.com/photo-1614730373829-51c853037a60?q=80&w=1000&auto=format&fit=crop", // Abstract Sphere/Orb
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop", // Abstract Sphere/Orb Replacement
   },
   {
     id: "market",
