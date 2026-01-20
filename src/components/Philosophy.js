@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "lucide-react";
+import { PhilosophyBackground, PhilosophyShape } from "./Philosophy3D";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,24 +15,18 @@ const steps = [
     title: "Design",
     description:
       "Intelligent design is the essence of nature; that’s our inspiration in crafting tomorrow’s tech realm.",
-    image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop", // Abstract 3D shape (Butterfly-ish)
   },
   {
     id: "build",
     title: "Build",
     description:
       "Constantly adopting cutting edge technology for your enterprise to harness its endless possibilities and leave a global imprint.",
-    image:
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop", // Abstract Sphere/Orb Replacement
   },
   {
     id: "market",
     title: "Market",
     description:
       "Experts in solving the WHY, WHERE and HOW of propelling your business to new frontiers.",
-    image:
-      "https://images.unsplash.com/photo-1636819488524-1f019c4e1c44?q=80&w=1000&auto=format&fit=crop", // 3D Rocket
   },
 ];
 
@@ -42,17 +37,16 @@ export default function Philosophy() {
   useEffect(() => {
     let ctx = gsap.context(() => {
       // 1. Text Reveal Animation
-      const textElenents = gsap.utils.toArray(".reveal-text span");
+      const textElements = gsap.utils.toArray(".reveal-text");
 
-      gsap.to(textElenents, {
-        bg: "white", // This won't work for gradient/clip, we need opacity or color
+      gsap.to(textElements, {
         color: "white",
         duration: 1,
         stagger: 0.1,
         scrollTrigger: {
           trigger: textRef.current,
-          start: "top 70%",
-          end: "bottom 70%",
+          start: "top 80%",
+          end: "bottom 50%",
           scrub: 1,
         },
       });
@@ -65,9 +59,12 @@ export default function Philosophy() {
         scrollTrigger: {
           trigger: stepsContainer,
           start: "top top",
-          end: "+=300%", // Scroll distance
+          end: "+=150%",
           pin: true,
-          scrub: 1,
+          scrub: 0.5,
+          fastScrollEnd: true,
+          preventOverlaps: true,
+          refreshPriority: 1, // Ensure this calculates spacing before subsequent triggers
         },
       });
 
@@ -112,12 +109,14 @@ export default function Philosophy() {
       ref={containerRef}
       className="bg-[#0e0e0e] text-white relative z-10"
     >
+      <PhilosophyBackground />
+
       {/* 1. Intro Reveal Text */}
       <div
         ref={textRef}
-        className="py-24 px-6 md:px-16 max-w-7xl mx-auto min-h-[50vh] flex items-center justify-center"
+        className="pt-24 pb-12 px-6 md:px-16 max-w-7xl mx-auto min-h-[30vh] flex items-center justify-center relative z-10"
       >
-        <h2 className="text-3xl md:text-5xl lg:text-7xl font-medium text-center leading-tight">
+        <h2 className="text-3xl md:text-5xl lg:text-7xl font-light text-center leading-tight">
           {`We believe in a world where technology fosters your everyday experiences. And our mission is to make it happen!`
             .split(" ")
             .map((word, i) => (
@@ -136,38 +135,30 @@ export default function Philosophy() {
         {steps.map((step, i) => (
           <div
             key={step.id}
-            className={`step-panel absolute inset-0 w-full h-full flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 px-6 ${i !== 0 ? "opacity-0" : "opacity-100"}`}
+            className={`step-panel absolute inset-0 w-full h-full flex flex-col md:flex-row items-center md:items-center justify-start md:justify-center gap-10 md:gap-32 px-6 md:px-20 ${i !== 0 ? "opacity-0" : "opacity-100"}`}
             style={{ zIndex: steps.length - i }}
           >
-            {/* Visual (Left for even, Right for odd - alternating or centered?) 
-                    User image had Image on top/center and text below. Let's do Center alignment.
-                */}
-            <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-              {/* 3D Image Representative */}
-              <div className="w-[300px] h-[300px] md:w-[500px] md:h-[500px] relative mb-8 md:mb-12">
-                <Image
-                  src={step.image}
-                  alt={step.title}
-                  fill
-                  className="object-contain drop-shadow-[0_0_50px_rgba(255,255,255,0.2)]"
-                />
-              </div>
-
-              {/* Text Content */}
-              <h3 className="text-6xl md:text-9xl font-extralight mb-6 tracking-tight">
+            {/* Text Content (Left side) */}
+            <div className="flex flex-col items-start text-left max-w-xl order-2 md:order-1 pt-[40vh] md:pt-0 pointer-events-auto">
+              <h3 className="text-6xl md:text-8xl font-thin mb-8 tracking-tight">
                 {step.title}
               </h3>
-              <p className="text-lg md:text-2xl text-neutral-400 max-w-2xl mx-auto mb-8 font-light leading-relaxed">
+              <p className="text-lg md:text-xl text-neutral-400 font-light leading-relaxed mb-10 max-w-md">
                 {step.description}
               </p>
 
               <Link
                 href="/services"
-                className="group flex items-center gap-2 text-white/50 hover:text-white transition-colors text-lg uppercase tracking-widest font-bold"
+                className="group flex items-center gap-3 text-white hover:text-neutral-300 transition-colors text-sm uppercase tracking-[0.2em] font-medium border-b border-white/20 pb-1"
               >
                 Learn More
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
+            </div>
+
+            {/* Visual (Right side) - Now containing separate 3D shape */}
+            <div className="w-full md:w-1/2 h-[50vh] md:h-full flex justify-center items-center order-1 md:order-2 relative z-10">
+              <PhilosophyShape type={step.id} />
             </div>
           </div>
         ))}
