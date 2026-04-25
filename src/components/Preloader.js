@@ -16,14 +16,12 @@ export default function Preloader() {
     const tl = gsap.timeline();
     const letters = textRef.current.children;
 
-    // Set initial state: All letters fully visible
     gsap.set(letters, { opacity: 1 });
 
-    // Sequence: Fade out letters one by one from left to right (Slower & Smoother)
     tl.to(letters, {
-      opacity: 0, // Fully fade out
-      duration: 1.2, // Slower fade duration
-      stagger: 0.35, // Slower sequence between letters
+      opacity: 0,
+      duration: 1.2,
+      stagger: 0.35,
       ease: "power2.inOut",
     });
 

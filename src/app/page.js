@@ -16,7 +16,6 @@ export default function Home() {
   return (
     <main className="relative bg-[#0e0e0e] text-white overflow-x-hidden">
       <Preloader />
-      {/* Header */}
       <Header />
       <Hero />
       <Philosophy />
@@ -24,7 +23,7 @@ export default function Home() {
       <Services />
       <Portfolio />
       <Testimonials />
-      <Team />
+      {/* <Team /> */}
       <Blog />
       <Footer />
     </main>
